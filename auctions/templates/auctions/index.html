@@ -1,0 +1,19 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    <br>
+    {% for list in listings%}
+        {% if list.active%}
+        <div class="container pb-5 mt-n2 mt-md-n3 row col-xl-9 col-md-8 d-sm-flex justify-content-between my-4 pb-4 border-bottom media d-block d-sm-flex text-center text-sm-left" >
+                <img class="rounded cart-item-thumb mx-auto mr-sm-4" src="{{list.image}}" 
+                style="width: 240px; height: 240px; object-fit: cover;">
+                
+                <a class="product-card-title font-weight-semibold media-body pt-1 mx-auto text-center" href="{% url 'product_page' product_id=list.id%}"><h2>{{list.title}}<h2></a>
+                <h6 class="font-size-sm mb-1">Description: {{list.description}}</h6>
+                <h6 class="font-size-sm mb-1">Current Bid:{{list.highest_bid}}</h6>
+        </div>
+         
+        {% endif%}
+    {% endfor%}
+{% endblock %}

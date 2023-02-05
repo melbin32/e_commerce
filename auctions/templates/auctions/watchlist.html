@@ -1,0 +1,10 @@
+{% extends "auctions/layout.html" %}
+{% block body%}
+<h2>My watchlist</h2>
+{% for list in watchlist %}
+    <h4>{{list.title}}</h4>
+    <h6>by {{request.user}}</h6>
+    <h6>current bid: {{list.highest_bid}}</h6>
+    <br>
+{% endfor %}
+{% endblock %}

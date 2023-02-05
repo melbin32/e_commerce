@@ -1,0 +1,14 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<h1 class="heading">Create a new bid</h1>
+{% if user.is_authenticated%}
+<form action="{% url 'create'%}" method="POST">
+    {% csrf_token %}
+    {{create_form.as_p}}
+    <br>
+    <input class="btn btn-primary" type="submit" name="submit" value="create">
+</form>
+{% else%}
+    {{error}}
+{% endif%}
+{% endblock%}
